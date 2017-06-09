@@ -1,4 +1,4 @@
-# grid-image-generator
+п»ї# grid-image-generator
 Generate grid-image based on container width (at this moment with fixed gutter)
 
 Try this at https://clackym.github.io/grid-image-generator/
@@ -10,9 +10,9 @@ How does this happen?
 The designer makes two blocks of 6 columns each. One of the columns should be divided into two blocks of 5 and 7 columns, respectively. What does he do? It takes a picture-grid to make a copy of it and compresses it in one of the columns. Thus gutter is compressed together with a grid and columns become not such what should be. Or simply, making a non-standard size of the layout, it compresses the grid image and again the gutter shrinks together with the grid making the size of the columns wrong.
 This generator allows you to specify any width of the container and build any configuration of the columns, so that further development continues without errors.
 
-Зачем нужен очередной генератор? https://www.google.com/search?q=grid+generator About 41,000,000 results
+Р—Р°С‡РµРј РЅСѓР¶РµРЅ РѕС‡РµСЂРµРґРЅРѕР№ РіРµРЅРµСЂР°С‚РѕСЂ? https://www.google.com/search?q=grid+generator About 41,000,000 results
 
-Потому что мне надоело когда дизайнеры ломают gutter уменьшая сетку.
-Как это происходит?
-Дизайнер делает два блока по 6 колонок каждый. Одну из колонок ему нужно разделить на два блока по 5 и 7 колонок соответсвенно. Что он делает? Берёт картинку-сетку делает её копию и сжимает в одной из колонок. При этом gutter сжимается вместе с сеткой и колонки становятся не такими какими должны быть. Или просто, делая нестандартный размер макета он сжимает картинку-сетку и опять gutter сжимается вместе с сеткой делая размер колонок неправильными. 
-Этот генератор позволяет задать любую ширину контейнера и построить любую конфигурацию колонок, чтобы дальнейшая разработка продолжалась без ошибок.
+РџРѕС‚РѕРјСѓ С‡С‚Рѕ РјРЅРµ РЅР°РґРѕРµР»Рѕ РєРѕРіРґР° РґРёР·Р°Р№РЅРµСЂС‹ Р»РѕРјР°СЋС‚ gutter СѓРјРµРЅСЊС€Р°СЏ СЃРµС‚РєСѓ.
+РљР°Рє СЌС‚Рѕ РїСЂРѕРёСЃС…РѕРґРёС‚?
+Р”РёР·Р°Р№РЅРµСЂ РґРµР»Р°РµС‚ РґРІР° Р±Р»РѕРєР° РїРѕ 6 РєРѕР»РѕРЅРѕРє РєР°Р¶РґС‹Р№. РћРґРЅСѓ РёР· РєРѕР»РѕРЅРѕРє РµРјСѓ РЅСѓР¶РЅРѕ СЂР°Р·РґРµР»РёС‚СЊ РЅР° РґРІР° Р±Р»РѕРєР° РїРѕ 5 Рё 7 РєРѕР»РѕРЅРѕРє СЃРѕРѕС‚РІРµС‚СЃРІРµРЅРЅРѕ. Р§С‚Рѕ РѕРЅ РґРµР»Р°РµС‚? Р‘РµСЂС‘С‚ РєР°СЂС‚РёРЅРєСѓ-СЃРµС‚РєСѓ РґРµР»Р°РµС‚ РµС‘ РєРѕРїРёСЋ Рё СЃР¶РёРјР°РµС‚ РІ РѕРґРЅРѕР№ РёР· РєРѕР»РѕРЅРѕРє. РџСЂРё СЌС‚РѕРј gutter СЃР¶РёРјР°РµС‚СЃСЏ РІРјРµСЃС‚Рµ СЃ СЃРµС‚РєРѕР№ Рё РєРѕР»РѕРЅРєРё СЃС‚Р°РЅРѕРІСЏС‚СЃСЏ РЅРµ С‚Р°РєРёРјРё РєР°РєРёРјРё РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ. РР»Рё РїСЂРѕСЃС‚Рѕ, РґРµР»Р°СЏ РЅРµСЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№ СЂР°Р·РјРµСЂ РјР°РєРµС‚Р° РѕРЅ СЃР¶РёРјР°РµС‚ РєР°СЂС‚РёРЅРєСѓ-СЃРµС‚РєСѓ Рё РѕРїСЏС‚СЊ gutter СЃР¶РёРјР°РµС‚СЃСЏ РІРјРµСЃС‚Рµ СЃ СЃРµС‚РєРѕР№ РґРµР»Р°СЏ СЂР°Р·РјРµСЂ РєРѕР»РѕРЅРѕРє РЅРµРїСЂР°РІРёР»СЊРЅС‹РјРё. 
+Р­С‚РѕС‚ РіРµРЅРµСЂР°С‚РѕСЂ РїРѕР·РІРѕР»СЏРµС‚ Р·Р°РґР°С‚СЊ Р»СЋР±СѓСЋ С€РёСЂРёРЅСѓ РєРѕРЅС‚РµР№РЅРµСЂР° Рё РїРѕСЃС‚СЂРѕРёС‚СЊ Р»СЋР±СѓСЋ РєРѕРЅС„РёРіСѓСЂР°С†РёСЋ РєРѕР»РѕРЅРѕРє, С‡С‚РѕР±С‹ РґР°Р»СЊРЅРµР№С€Р°СЏ СЂР°Р·СЂР°Р±РѕС‚РєР° РїСЂРѕРґРѕР»Р¶Р°Р»Р°СЃСЊ Р±РµР· РѕС€РёР±РѕРє.
