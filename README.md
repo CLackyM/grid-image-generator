@@ -1,5 +1,5 @@
 ﻿# grid-image-generator
-Generate grid-image based on container width (at this moment with fixed gutter)
+Generate grid-image based on container width for 12 columns grid (at this moment with fixed gutter)
 
 Try this at https://clackym.github.io/grid-image-generator/
 
