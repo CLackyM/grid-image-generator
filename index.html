@@ -89,7 +89,7 @@
 							<div class="_presets-width-container">
 								<div class="row">
 									<div class="col-12">
-										<button class="btn btn-outline-secondary">320</button> <button class="btn btn-outline-secondary">750</button> <button class="btn btn-outline-secondary">970</button> <button class="btn btn-outline-secondary">1170</button>
+										<button class="btn btn-outline-secondary">540</button> <button class="btn btn-outline-secondary">720</button> <button class="btn btn-outline-secondary">960</button> <button class="btn btn-outline-secondary">1140</button> <button class="btn btn-outline-secondary">1320</button>
 									</div>
 								</div>
 							</div>
@@ -99,11 +99,38 @@
 							<input class="form-control _set-width-input" type="number" name="name" value="" />
 						</div>
 					</div>
-					<h2>Gutter</h2>
-					Gutter = 30px
-					<!--<h2>Set gutter</h2>
-					<div class="text-warning">Designer, remember: the gutter should be the same for all sizes! </div>
-					<input class="form-control _set-gutter-input" type="number" name="name" value="30" />-->
+					<!--<h2>Gutter</h2>
+					Gutter = 30px-->
+					<h2>Set gutter</h2>
+					<div class="row">
+						<div class="col-12 col-sm-7">
+							<h4>Presets</h4>
+							<div class="btn-group _presets-gutter-container" role="group">
+								<input type="radio" class="btn-check" name="btnradio" value="0" id="gutter0" autocomplete="off">
+								<label class="btn btn-outline-secondary" for="gutter0">0</label>
+							
+								<input type="radio" class="btn-check" name="btnradio" value="0.25" id="gutter1" autocomplete="off">
+								<label class="btn btn-outline-secondary" for="gutter1">1</label>
+							
+								<input type="radio" class="btn-check" name="btnradio" value="0.5" id="gutter2" autocomplete="off">
+								<label class="btn btn-outline-secondary" for="gutter2">2</label>
+
+								<input type="radio" class="btn-check" name="btnradio" value="1" id="gutter3" autocomplete="off">
+								<label class="btn btn-outline-secondary" for="gutter3">3</label>
+							
+								<input type="radio" class="btn-check" name="btnradio" value="1.5" id="gutter4" autocomplete="off" checked>
+								<label class="btn btn-outline-secondary" for="gutter4">4</label>
+							
+								<input type="radio" class="btn-check" name="btnradio" value="3" id="gutter5" autocomplete="off">
+								<label class="btn btn-outline-secondary" for="gutter5">5</label>
+							</div>
+						</div>
+						<div class="col-12 col-sm-5">
+							<h4>Manual, px</h4>
+							<input class="form-control _manual-gutter-input" type="number" name="name" value="36" />
+						</div>
+					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -150,6 +177,8 @@
 				downloadButton = $('._download'),
 				presetsColsContainer = $('._presets-cols-container'),
 				presetsWidthContainer = $('._presets-width-container'),
+				presetsGutterContainer = $('._presets-gutter-container'),
+				manualGutterInput = $('._manual-gutter-input'),
 				manualColsInput = $('._manual-cols-input'),
 				addManualCols = $('._add-manual-cols'),
 				preResult = $('._pre-result-container'),
@@ -244,9 +273,23 @@
 				downloadButton.removeClass('disabled');
 			};
 			function setPreResultContainerWidth(val) {
-				width = val;
-				preResult.width(width-gutter);
+				if(val) width = val;
+				preResult.width(width);
 			}
+			function setPreResultGutter(val, index) {
+				gutter = convertRemToPixels(val * 1.5);
+				manualGutterInput.val(gutter);
+				$('._pre-result-row').each(function() {
+					$(this).removeClass('gx-0 gx-1 gx-2 gx-3 gx-4 gx-5');
+					$(this)[0].style.removeProperty('--bs-gutter-x');
+					$(this).addClass('gx-'+index);
+				});
+				setPreResultContainerWidth();
+				function convertRemToPixels(rem) {
+					return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+				}
+			}
+			
 			setWidthInput.change(function () {
 				setPreResultContainerWidth(this.value);
 			});
@@ -263,6 +306,20 @@
 				$(this).click(function () {
 					setPreResultContainerWidth(Number($(this).html()));
 				})
+			})
+			presetsGutterContainer.find('input').each(function() {
+				$(this).change(function(){
+					setPreResultGutter(Number($(this).val()), $(this).index() / 2);
+				})
+			})
+			manualGutterInput.change(function() {
+				
+				gutter = $(this).val();
+				setPreResultContainerWidth();
+				$('._pre-result-row').each(function() {
+					$(this).removeClass('gx-0 gx-1 gx-2 gx-3 gx-4 gx-5');
+					$(this)[0].style.setProperty('--bs-gutter-x', gutter+"px");
+				});
 			})
 			generateButton.click(function () {
 				generateImage();
